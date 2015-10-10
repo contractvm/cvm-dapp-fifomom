@@ -1,0 +1,6 @@
+{
+	"name": "fifomom",
+	"version": "0.1",
+	"authors": ["Davide Gessa"],
+	"description": "decentralized fifo message-oriented middleware"
+}
