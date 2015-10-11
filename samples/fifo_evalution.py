@@ -4,7 +4,8 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 from threading import Thread
-from libcontractvm import Wallet, WalletChainSo, FIFOManager, ConsensusManager
+from libcontractvm import Wallet, WalletChainSo, ConsensusManager
+from fifomom import FIFOManager
 import config
 import random
 import time

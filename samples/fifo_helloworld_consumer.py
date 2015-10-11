@@ -3,7 +3,8 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-from libcontractvm import Wallet, WalletNode, FIFOManager, ConsensusManager
+from libcontractvm import Wallet, WalletNode, ConsensusManager
+from fifomom import FIFOManager
 import config
 
 consMan = ConsensusManager.ConsensusManager ()
