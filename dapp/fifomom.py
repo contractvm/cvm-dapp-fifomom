@@ -90,11 +90,11 @@ class FIFOCore (dapp.Core):
 		return {'size': len (msgs), 'messages': msgsn}
 	
 
-class FIFODapp (dapp.Dapp):
+class fifomom (dapp.Dapp):
 	def __init__ (self, chain, db, dht, apimaster):
 		self.core = FIFOCore (chain, db)
 		api = FIFOAPI (self.core, dht, apimaster)		
-		super (FIFODapp, self).__init__("FIFO", FIFOProto.DAPP_CODE, FIFOProto.METHOD_LIST, chain, db, dht, api)
+		super (fifomom, self).__init__("FIFO", FIFOProto.DAPP_CODE, FIFOProto.METHOD_LIST, chain, db, dht, api)
 		
 
 	def handleMessage (self, m):
