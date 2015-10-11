@@ -21,7 +21,7 @@ class FIFOMessage (Message):
 		m = FIFOMessage ()
 		m.Queue = queue
 		m.Body = body
-		m.PluginCode = FIFOProto.DAPP_CODE
+		m.DappCode = FIFOProto.DAPP_CODE
 		m.Method = FIFOProto.METHOD_PUBLISH_MESSAGE
 		return m
 
@@ -41,6 +41,7 @@ class FIFOAPI (dapp.API):
 	def __init__ (self, vm, dht, api):
 		self.api = api
 		self.vm = vm
+		self.dht = dht
 
 		rpcmethods = {}
 
