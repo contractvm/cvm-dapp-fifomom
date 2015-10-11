@@ -3,9 +3,9 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 import time
-from libcontractvm import Wallet, ConsensusManager, PluginManager
+from libcontractvm import Wallet, ConsensusManager, DappManager
 
-class FIFOManager (PluginManager.PluginManager):
+class FIFOManager (DappManager.DappManager):
 	def __init__ (self, consensusManager, wallet = None):
 		super (FIFOManager, self).__init__(consensusManager, wallet)
 		self.consumers = {}

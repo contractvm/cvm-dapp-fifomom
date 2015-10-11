@@ -4,9 +4,9 @@
 
 import logging
 
-from .. import config, dapp
-from ..proto import Protocol
-from ..chain.message import Message
+from contractvmd import config, dapp
+from contractvmd.proto import Protocol
+from contractvmd.chain.message import Message
 
 logger = logging.getLogger(config.APP_NAME)
 
