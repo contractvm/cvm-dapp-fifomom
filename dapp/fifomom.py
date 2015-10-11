@@ -40,6 +40,8 @@ class FIFOMessage (Message):
 class FIFOAPI (dapp.API):
 	def __init__ (self, vm, dht, api):
 		self.api = api
+		self.vm = vm
+
 		rpcmethods = {}
 
 		rpcmethods["publish_message"] = {
