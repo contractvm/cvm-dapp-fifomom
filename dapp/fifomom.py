@@ -11,7 +11,7 @@ from contractvmd.chain.message import Message
 logger = logging.getLogger(config.APP_NAME)
 
 class FIFOProto:
-	DAPP_CODE = 0x09
+	DAPP_CODE = [ 0x01, 0x05 ]
 	METHOD_PUBLISH_MESSAGE = 0x01
 	METHOD_LIST = [METHOD_PUBLISH_MESSAGE]
 
