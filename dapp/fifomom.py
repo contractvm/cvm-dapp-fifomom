@@ -62,10 +62,8 @@ class FIFOAPI (dapp.API):
 
 	def method_publish_message (self, queue, body):
 		message = FIFOMessage.publishMessage (queue, body)
-		[datahash, outscript, tempid] = message.toOutputScript (self.dht)
-		r = { "outscript": outscript, "datahash": datahash, "tempid": tempid, "fee": Protocol.estimateFee (self.vm.getChainCode (), 100 * len (body)) }
-		return r
-		
+		return self.createTransactionResponse (message)
+
 	def method_get_messages (self, queue, last):
 		return self.vm.getMessages (queue, last)
 
@@ -91,18 +89,16 @@ class FIFOCore (dapp.Core):
 			msgs = []
 			msgsn = []
 		return {'size': len (msgs), 'messages': msgsn}
-	
+
 
 class fifomom (dapp.Dapp):
 	def __init__ (self, chain, db, dht, apimaster):
 		self.core = FIFOCore (chain, db)
-		api = FIFOAPI (self.core, dht, apimaster)		
+		api = FIFOAPI (self.core, dht, apimaster)
 		super (fifomom, self).__init__(FIFOProto.DAPP_CODE, FIFOProto.METHOD_LIST, chain, db, dht, api)
-		
+
 
 	def handleMessage (self, m):
 		if m.Method == FIFOProto.METHOD_PUBLISH_MESSAGE:
 			logger.pluginfo ('Found new message %s: publish on queue %s', m.Hash, m.Data['queue'])
 			self.core.publishMessage (m.Data['queue'], m.Data['body'])
-			
-		
