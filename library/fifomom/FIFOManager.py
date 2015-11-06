@@ -11,7 +11,7 @@ class FIFOManager (DappManager.DappManager):
 		self.consumers = {}
 
 	def publish (self, queue, body):
-		cid = self._produce_transaction ('fifomom.publish_message', [queue, body])
+		cid = self.produceTransaction ('fifomom.publish_message', [queue, body])
 
 	def consume (self, queue, callback):
 		self.consumers [queue] = {'call': callback, 'last': 0}
