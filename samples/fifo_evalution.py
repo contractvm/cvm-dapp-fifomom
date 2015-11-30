@@ -4,9 +4,8 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 from threading import Thread
-from libcontractvm import Wallet, WalletChainSo, ConsensusManager
+from libcontractvm import Wallet, WalletExplorer, ConsensusManager
 from fifomom import FIFOManager
-import config
 import random
 import time
 
@@ -14,10 +13,8 @@ consMan = ConsensusManager.ConsensusManager ()
 consMan.addNode ("http://127.0.0.1:2818")
 consMan.addNode ("http://127.0.0.1:2819")
 consMan.addNode ("http://127.0.0.1:2820")
-
-wallet=WalletChainSo.WalletChainSo (chain='XLT', wallet_file='data/test_xltnode_b.wallet')
+wallet = WalletExplorer.WalletExplorer (wallet_file='test.wallet')
 			
-
 
 def consumer ():
 	fifoMan = FIFOManager.FIFOManager (consMan, wallet=wallet)
